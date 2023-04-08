@@ -29,6 +29,24 @@ export const languages: Language[] = [
     website: "https://www.java.com/",
   },
   {
+    name: "Python",
+    logo: "/languages/python.png",
+    description:
+      "Python is an interpreted, object-oriented, high-level programming language with dynamic semantics.",
+    creator: "Guido van Rossum",
+    created: "1991",
+    usecase:
+      "Python is used for developing web applications, machine learning, data science and more.",
+    facts: [
+      "Python was originally a successor to the ABC language.",
+      "Python is known for its beginner friendliness.",
+      "Python is currently (one) of the most popular programming languages.",
+    ],
+
+    discord: "https://discord.gg/python",
+    website: "https://www.python.org/",
+  },
+  {
     name: "CPlusPlus",
     logo: "/languages/cpp.png",
     description:
