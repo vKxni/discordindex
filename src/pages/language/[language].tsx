@@ -62,6 +62,12 @@ const LanguagePage: React.FC = () => {
           content={`${selectedLanguage.name} logo`}
         />
         <meta property="og:site_name" content="Discord Language Index" />
+        <meta
+          property="og:url"
+          content={`https://discordindex.vercel.app/language/${encodeURIComponent(
+            selectedLanguage.name
+          )}`}
+        />
       </Head>
       <div className={`${themeClass} min-h-screen`}>
         <Header darkMode={darkMode} onToggleDarkMode={handleToggleDarkMode} />
