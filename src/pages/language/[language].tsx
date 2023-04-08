@@ -51,7 +51,7 @@ const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
     );
   }
 
-  const imagePath = `/public/languages/${selectedLanguage!.name}.png`;
+  const imagePath = `/languages/${encodeURIComponent(selectedLanguage!.name)}.png`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(selectedLanguage?.discord || "");
