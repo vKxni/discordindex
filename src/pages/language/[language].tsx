@@ -129,6 +129,10 @@ const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
           content={`Want to learn ${selectedLanguage.name} and join their Discord server? Grab the link here!`}
         />
         <meta
+          property="og:description"
+          content="Want to learn ${selectedLanguage.name} and join their Discord server? Grab the link here!"
+        />
+        <meta
           property="og:title"
           content={`${selectedLanguage.name} - Programming Language`}
         />
