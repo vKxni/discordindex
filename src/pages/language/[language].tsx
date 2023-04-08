@@ -23,6 +23,8 @@ const LanguagePage: React.FC = () => {
     return <div>Language not found</div>;
   }
 
+  const imagePath = `/languages/${selectedLanguage}.png`
+
   const handleCopy = () => {
     navigator.clipboard.writeText(selectedLanguage.discord);
     setDiscordCopied(true);
@@ -54,12 +56,12 @@ const LanguagePage: React.FC = () => {
           property="og:description"
           content={selectedLanguage.description}
         />
-        <meta property="og:image" content={selectedLanguage.logo} />
+        <meta property="og:image" content={imagePath} />
         <meta property="og:image:width" content="400" />
         <meta property="og:image:height" content="400" />
         <meta
           property="og:image:alt"
-          content={`${selectedLanguage.name} logo`}
+          content={`${selectedLanguage.name}`}
         />
         <meta property="og:site_name" content="Discord Language Index" />
         <meta
