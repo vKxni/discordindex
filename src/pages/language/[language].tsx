@@ -23,7 +23,7 @@ const LanguagePage: React.FC = () => {
     return <div>Language not found</div>;
   }
 
-  const imagePath = `/languages/${selectedLanguage}.png`
+  const imagePath = `/languages/${selectedLanguage.name}.png`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(selectedLanguage.discord);
@@ -57,8 +57,8 @@ const LanguagePage: React.FC = () => {
           content={selectedLanguage.description}
         />
         <meta property="og:image" content={imagePath} />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="400" />
+        <meta property="og:image:width" content="200" />
+        <meta property="og:image:height" content="200" />
         <meta
           property="og:url"
           content={`https://discordindex.vercel.app/language/${encodeURIComponent(
