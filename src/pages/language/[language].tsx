@@ -16,6 +16,55 @@ interface LanguagePageProps {
   selectedLanguage: Language | null;
 }
 
+interface LanguageUrls {
+  [key: string]: string;
+}
+
+const languageUrls: LanguageUrls = {
+  JavaScript: "/languages/javascript.png",
+  TypeScript: "/languages/typescript.png",
+  Python: "/languages/python.png",
+  Java: "/languages/java.png",
+  "C#": "/languages/csharp.png",
+  "C++": "/languages/cpp.png",
+  C: "/languages/c.png",
+  Go: "/languages/go.png",
+  Rust: "/languages/rust.png",
+  Kotlin: "/languages/kotlin.png",
+  Swift: "/languages/swift.png",
+  PHP: "/languages/php.png",
+  Ruby: "/languages/ruby.png",
+  Dart: "/languages/dart.png",
+  Elixir: "/languages/elixir.png",
+  Haskell: "/languages/haskell.png",
+  Lua: "/languages/lua.png",
+  Scala: "/languages/scala.png",
+  Clojure: "/languages/clojure.png",
+  Erlang: "/languages/erlang.png",
+  "F#": "/languages/fsharp.png",
+  Julia: "/languages/julia.png",
+  OCaml: "/languages/ocaml.png",
+  R: "/languages/r.png",
+  V: "/languages/v.png",
+  Assembly: "/languages/assembly.png",
+  D: "/languages/d.png",
+  Perl: "/languages/perl.png",
+  Racket: "/languages/racket.png",
+  SQL: "/languages/sql.png",
+  Agda: "/languages/agda.png",
+  Back: "/languages/back.png",
+  Ballerina: "/languages/ballerina.png",
+  Haxe: "/languages/haxe.png",
+  Lisp: "/languages/lisp.png",
+  Jolie: "/languages/jolie.png",
+  Nim: "/languages/nim.png",
+  Pascal: "/languages/pascal.png",
+  Odin: "/languages/odin.png",
+  QSharp: "/languages/qsharp.png",
+  Zig: "/languages/zig.png",
+  Wolfram: "/languages/wolfram.png",
+};
+
 const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
   const [darkMode, setDarkMode] = useState(
     typeof window !== "undefined" && localStorage.getItem("darkMode") === "true"
@@ -51,9 +100,7 @@ const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
     );
   }
 
-  const imagePath = `/languages/${encodeURIComponent(
-    selectedLanguage!.name
-  )}.png`;
+  const imagePath = languageUrls[selectedLanguage!.name];
 
   const handleCopy = () => {
     navigator.clipboard.writeText(selectedLanguage?.discord || "");
