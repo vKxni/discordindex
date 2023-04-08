@@ -51,7 +51,9 @@ const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
     );
   }
 
-  const imagePath = `/languages/${encodeURIComponent(selectedLanguage!.name)}.png`;
+  const imagePath = `/languages/${encodeURIComponent(
+    selectedLanguage!.name
+  )}.png`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(selectedLanguage?.discord || "");
@@ -75,15 +77,15 @@ const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
     <>
       <Head>
         <title>{`${selectedLanguage.name} - Language`}</title>
-        <meta name="description" content={selectedLanguage.description} />
+        <meta
+          name="description"
+          content={`Want to learn ${selectedLanguage.name} and join their Discord server? Grab the link here!`}
+        />
         <meta
           property="og:title"
           content={`${selectedLanguage.name} - Programming Language`}
         />
-        <meta
-          property="og:description"
-          content={`Want to learn ${selectedLanguage.name} and join their Discord server? Grab the link here!`}
-        />
+
         <meta
           property="og:image"
           content={`https://discordindex.vercel.app/${imagePath}`}
