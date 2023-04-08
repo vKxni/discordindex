@@ -1,9 +1,18 @@
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import dynamic from "next/dynamic";
 import { languages } from "@/utils/languages";
-
-import { Header } from "@/layout/Header";
 import Head from "next/head";
+
+interface HeaderProps {
+  darkMode: boolean;
+  onToggleDarkMode: () => void;
+}
+
+const DynamicHeader = dynamic(
+  () => import("@/layout/Header").then((mod) => mod.Header),
+  { ssr: false }
+);
+const DynamicLink = dynamic(() => import("next/link"));
 
 const Home: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -44,9 +53,16 @@ const Home: React.FC = () => {
         />
         <meta property="og:url" content="https://discordindex.vercel.app/" />
       </Head>
-      <div className={`min-h-screen ${darkMode ? "bg-gray-900 text-white darkMode" : ""}`}>
+      <div
+        className={`min-h-screen ${
+          darkMode ? "bg-gray-900 text-white darkMode" : ""
+        }`}
+      >
         <div className="ml-auto">
-          <Header darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
+          <DynamicHeader
+            darkMode={darkMode}
+            onToggleDarkMode={toggleDarkMode}
+          />
         </div>
         <div className="mx-auto py-12 px-4 sm:px-6 lg:px-8 max-w-screen-xl">
           <div className="relative mb-8">
@@ -101,7 +117,7 @@ const Home: React.FC = () => {
             {filteredLanguages
               .sort((a, b) => a.name.localeCompare(b.name))
               .map((language) => (
-                <Link
+                <DynamicLink
                   href={`/language/${encodeURIComponent(language.name)}`}
                   key={language.name}
                   legacyBehavior={true}
@@ -128,7 +144,7 @@ const Home: React.FC = () => {
                       <p className="text-gray-500">{language.description}</p>
                     </div>
                   </a>
-                </Link>
+                </DynamicLink>
               ))}
           </div>
         </div>
