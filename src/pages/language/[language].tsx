@@ -56,9 +56,9 @@ const LanguagePage: React.FC = () => {
           property="og:description"
           content={selectedLanguage.description}
         />
-        <meta property="og:image" content={imagePath} />
+        {/* <meta property="og:image" content={imagePath} />
         <meta property="og:image:width" content="200" />
-        <meta property="og:image:height" content="200" />
+        <meta property="og:image:height" content="200" /> */}
         <meta
           property="og:url"
           content={`https://discordindex.vercel.app/language/${encodeURIComponent(
