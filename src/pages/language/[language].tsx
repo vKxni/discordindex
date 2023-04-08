@@ -1,10 +1,16 @@
+import {
+  FaDiscord,
+  FaExternalLinkAlt,
+  FaArrowLeft,
+  FaExclamationTriangle,
+} from "react-icons/fa";
 import { GetServerSideProps, NextPage } from "next";
 import { useState } from "react";
 import Link from "next/link";
+import Head from "next/head";
+
 import { Language, languages } from "@/utils/languages";
 import { Header } from "@/layout/Header";
-import { FaDiscord, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
-import Head from "next/head";
 
 interface LanguagePageProps {
   selectedLanguage: Language | null;
@@ -15,6 +21,35 @@ const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
     typeof window !== "undefined" && localStorage.getItem("darkMode") === "true"
   );
   const [discordCopied, setDiscordCopied] = useState(false);
+
+  if (!selectedLanguage) {
+    return (
+      <div className="min-h-screen flex flex-col justify-center items-center">
+        <div className="mx-auto py-8 px-4 sm:px-6 lg:px-8 max-w-screen-xl">
+          <div className="rounded-lg shadow-lg p-8 flex flex-col items-center bg-white">
+            <div className="flex items-center justify-center h-16 w-16 rounded-full bg-red-500 text-white mb-4">
+              <FaExclamationTriangle className="h-8 w-8" />
+            </div>
+            <h1 className="text-3xl font-bold text-center mb-2">
+              Oops! Page not found
+            </h1>
+            <p className="text-gray-700 text-center mb-4">
+              The page you are looking for might have been removed or is
+              temporarily unavailable.
+            </p>
+            <div className="mt-1 sm:mt-8">
+              <Link href="/" legacyBehavior={true}>
+                <a className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center cursor-pointer">
+                  <FaArrowLeft className="mr-2" />
+                  Back to home
+                </a>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const imagePath = `/public/languages/${selectedLanguage!.name}.png`;
 
@@ -36,37 +71,6 @@ const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
     darkMode ? "bg-gray-800" : "bg-white"
   } mt-n12 !important`;
 
-  if (!selectedLanguage) {
-    return (
-      <div className={`${themeClass} min-h-screen`}>
-        <Header darkMode={darkMode} onToggleDarkMode={handleToggleDarkMode} />
-        <div className="mx-auto py-8 px-4 sm:px-6 lg:px-8 max-w-screen-xl">
-          <div className={languageBoxClass}>
-            <h1
-              className={`text-3xl font-bold text-center mb-2 ${
-                darkMode ? "text-white" : ""
-              }`}
-            >
-              Language not found
-            </h1>
-            <div className={`mt-1 sm:mt-8 ${darkMode ? "text-white" : ""}`}>
-              <Link href="/" legacyBehavior={true}>
-                <a
-                  className={`bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center cursor-pointer ${
-                    darkMode ? "text-white hover:text-white" : ""
-                  }`}
-                >
-                  <FaArrowLeft className="mr-2" />
-                  Back to home
-                </a>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <>
       <Head>
@@ -82,7 +86,7 @@ const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
         />
         <meta
           property="og:image"
-          content={`https://discordindex.vercel.app${imagePath}`}
+          content={`https://discordindex.vercel.app/${imagePath}`}
         />
         <meta property="og:image:width" content="200" />
         <meta property="og:image:height" content="200" />

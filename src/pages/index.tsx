@@ -4,11 +4,10 @@ import { languages } from "@/utils/languages";
 
 import { Header } from "@/layout/Header";
 import Head from "next/head";
-import { FiGithub } from "react-icons/fi";
-import { HiSun, HiMoon } from "react-icons/hi";
 
 const Home: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const toggleDarkMode = () => {
     const newMode = !darkMode;
@@ -23,26 +22,83 @@ const Home: React.FC = () => {
     }
   }, []);
 
+  const filteredLanguages =
+    searchQuery.length > 0
+      ? languages.filter((language) =>
+          language.name.toLowerCase().startsWith(searchQuery.toLowerCase())
+        )
+      : languages;
+
   return (
     <>
       <Head>
         <title>Discord Index</title>
-        <meta name="description" content="Discord Index helps developers find all kind of programming language communities on Discord, making it easier to connect and collaborate with like-minded individuals." />
+        <meta
+          name="description"
+          content="Discord Index helps developers find all kind of programming language communities on Discord, making it easier to connect and collaborate with like-minded individuals."
+        />
         <meta property="og:title" content="Discord Index" />
-        <meta property="og:description" content="Discord Index helps developers find all kind of programming language communities on Discord, making it easier to connect and collaborate with like-minded individuals." />
+        <meta
+          property="og:description"
+          content="Discord Index helps developers find all kind of programming language communities on Discord, making it easier to connect and collaborate with like-minded individuals."
+        />
         <meta property="og:url" content="https://discordindex.vercel.app/" />
       </Head>
       <div
-        className={`min-h-screen ${
-          darkMode ? "bg-gray-900 text-white" : ""
-        }`}
+        className={`min-h-screen ${darkMode ? "bg-gray-900 text-white" : ""}`}
       >
         <div className="ml-auto">
           <Header darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
         </div>
         <div className="mx-auto py-12 px-4 sm:px-6 lg:px-8 max-w-screen-xl">
+          <div className="relative mb-8">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+              <svg
+                className={`h-5 w-5 ${
+                  darkMode ? "text-gray-400" : "text-gray-500"
+                }`}
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M8.5 15a6.5 6.5 0 100-13 6.5 6.5 0 000 13zM15 9.5a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+            <input
+              type="text"
+              placeholder="Search for a language"
+              className={`w-full py-2 pl-10 pr-10 rounded-md border-2 ${
+                darkMode ? "border-gray-700 text-white" : "border-gray-300"
+              } focus:outline-none focus:border-blue-500`}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            {searchQuery.length > 0 && (
+              <button
+                className={`absolute inset-y-0 right-0 flex items-center pr-3 ${
+                  darkMode ? "text-gray-400" : "text-gray-500"
+                }`}
+                onClick={() => setSearchQuery("")}
+              >
+                <svg
+                  className="h-5 w-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L10 8.586l-2.293-2.293a1 1 0 00-1.414 1.414L8.586 10l-2.293 2.293a1 1 0 001.414 1.414L10 11.414l2.293 2.293a1 1 0 001.414-1.414L11.414 10l2.293-2.293z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            )}
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {languages
+            {filteredLanguages
               .sort((a, b) => a.name.localeCompare(b.name))
               .map((language) => (
                 <Link
@@ -66,38 +122,15 @@ const Home: React.FC = () => {
                           className="h-full w-full object-contain"
                         />
                       </div>
-                      <h2 className="text-xl font-bold text-center mb-2">
+                      <h3 className="text-2xl font-bold mb-2">
                         {language.name}
-                      </h2>
-                      <p
-                        className="text-gray-700 text-center overflow-hidden"
-                        style={{ maxHeight: "200px", textOverflow: "ellipsis" }}
-                      >
-                        {language.description}
-                      </p>
+                      </h3>
+                      <p className="text-gray-500">{language.description}</p>
                     </div>
                   </a>
                 </Link>
               ))}
           </div>
-        </div>
-        <div className="fixed bottom-0 right-0 p-4">
-          <button
-            onClick={toggleDarkMode}
-            className="text-2xl mr-4 focus:outline-none"
-            aria-label="Toggle dark mode"
-          >
-            {darkMode ? <HiSun className="mr-2" /> : <HiMoon className="mr-2" />}
-          </button>
-          <a
-            href="https://github.com/vKxni/discordindex"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-2xl hover:text-gray-400 focus:outline-none mr-4"
-            aria-label="GitHub repository"
-          >
-            <FiGithub />
-          </a>
         </div>
       </div>
     </>
