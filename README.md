@@ -10,7 +10,6 @@ Connect with other Developers, using the Discord Language Index.
 </strong>
 </p>
 
----
 
 ## Why?
 
