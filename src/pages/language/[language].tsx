@@ -9,67 +9,16 @@ import { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 
+import { LanguagePageProps } from "@/types";
 import { Language, languages } from "@/utils/languages";
+import { languageUrls } from "@/utils/urls";
 import { Header } from "@/layout/Header";
 
-interface LanguagePageProps {
-  selectedLanguage: Language | null;
-}
-
-interface LanguageUrls {
-  [key: string]: string;
-}
-
-const languageUrls: LanguageUrls = {
-  JavaScript: "/languages/javascript.png",
-  TypeScript: "/languages/typescript.png",
-  Python: "/languages/python.png",
-  Java: "/languages/java.png",
-  "C#": "/languages/csharp.png",
-  "C++": "/languages/cpp.png",
-  C: "/languages/c.png",
-  Go: "/languages/go.png",
-  Rust: "/languages/rust.png",
-  Kotlin: "/languages/kotlin.png",
-  Swift: "/languages/swift.png",
-  PHP: "/languages/php.png",
-  Ruby: "/languages/ruby.png",
-  Dart: "/languages/dart.png",
-  Elixir: "/languages/elixir.png",
-  Haskell: "/languages/haskell.png",
-  Lua: "/languages/lua.png",
-  Scala: "/languages/scala.png",
-  Clojure: "/languages/clojure.png",
-  Erlang: "/languages/erlang.png",
-  "F#": "/languages/fsharp.png",
-  Julia: "/languages/julia.png",
-  OCaml: "/languages/ocaml.png",
-  R: "/languages/r.png",
-  V: "/languages/v.png",
-  Assembly: "/languages/assembly.png",
-  D: "/languages/d.png",
-  Perl: "/languages/perl.png",
-  Racket: "/languages/racket.png",
-  SQL: "/languages/sql.png",
-  Agda: "/languages/agda.png",
-  Back: "/languages/back.png",
-  Ballerina: "/languages/ballerina.png",
-  Haxe: "/languages/haxe.png",
-  Lisp: "/languages/lisp.png",
-  Jolie: "/languages/jolie.png",
-  Nim: "/languages/nim.png",
-  Pascal: "/languages/pascal.png",
-  Odin: "/languages/odin.png",
-  QSharp: "/languages/qsharp.png",
-  Zig: "/languages/zig.png",
-  Wolfram: "/languages/wolfram.png",
-};
-
 const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
-  const [darkMode, setDarkMode] = useState(
+  const [darkMode, setDarkMode] = useState<boolean>(
     typeof window !== "undefined" && localStorage.getItem("darkMode") === "true"
   );
-  const [discordCopied, setDiscordCopied] = useState(false);
+  const [discordCopied, setDiscordCopied] = useState<boolean>(false);
 
   if (!selectedLanguage) {
     return (
@@ -101,6 +50,10 @@ const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
   }
 
   const imagePath = languageUrls[selectedLanguage!.name];
+  const themeClass = darkMode ? "bg-gray-900 text-white" : "";
+  const languageBoxClass = `rounded-lg shadow-lg p-8 flex flex-col items-center ${
+    darkMode ? "bg-gray-800" : "bg-white"
+  } mt-n12 !important`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(selectedLanguage?.discord || "");
@@ -114,11 +67,6 @@ const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
     setDarkMode(!darkMode);
     localStorage.setItem("darkMode", (!darkMode).toString());
   };
-
-  const themeClass = darkMode ? "bg-gray-900 text-white" : "";
-  const languageBoxClass = `rounded-lg shadow-lg p-8 flex flex-col items-center ${
-    darkMode ? "bg-gray-800" : "bg-white"
-  } mt-n12 !important`;
 
   return (
     <>

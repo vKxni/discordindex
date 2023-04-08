@@ -537,7 +537,7 @@ export const languages: Language[] = [
       "Clojure is used to build simple, expressive, and scalable systems.",
     facts: [
       "Clojure is a Lisp dialect.",
-      "Clojure has a advanced macro system.",
+      "Clojure has an advanced macro system.",
       "Clojure is a functional programming language.",
     ],
     discord: "https://discord.gg/FEXrzgZ2c4",

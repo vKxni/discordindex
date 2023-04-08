@@ -1,10 +1,7 @@
 import { FiGithub } from "react-icons/fi";
 import { HiSun, HiMoon } from "react-icons/hi";
 
-interface HeaderProps {
-  darkMode: boolean;
-  onToggleDarkMode: () => void;
-}
+import { HeaderProps } from "@/types";
 
 export const Header: React.FC<HeaderProps> = ({
   darkMode,
@@ -15,7 +12,9 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <div className={`shadow-md ${themeClass} h-16`}>
       <div className="mx-auto py-2 px-4 sm:px-6 lg:px-8 max-w-screen-xl flex justify-between items-center">
-      <h1 className="text-3xl sm:text-3xl font-bold">Discord Language Index</h1>
+        <h1 className="text-3xl sm:text-3xl font-bold">
+          Discord Language Index
+        </h1>
 
         <div className="flex items-center ml-auto">
           <button
