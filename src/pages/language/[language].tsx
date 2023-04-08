@@ -84,8 +84,8 @@ const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
           property="og:image"
           content={`https://discordindex.vercel.app${imagePath}`}
         />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="400" />
+        <meta property="og:image:width" content="200" />
+        <meta property="og:image:height" content="200" />
         <meta
           property="og:url"
           content={`https://discordindex.vercel.app/language/${encodeURIComponent(
