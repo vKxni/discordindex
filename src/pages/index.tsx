@@ -44,9 +44,7 @@ const Home: React.FC = () => {
         />
         <meta property="og:url" content="https://discordindex.vercel.app/" />
       </Head>
-      <div
-        className={`min-h-screen ${darkMode ? "bg-gray-900 text-white" : ""}`}
-      >
+      <div className={`min-h-screen ${darkMode ? "bg-gray-900 text-white darkMode" : ""}`}>
         <div className="ml-auto">
           <Header darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
         </div>
@@ -72,7 +70,9 @@ const Home: React.FC = () => {
               placeholder="Search for a language"
               className={`w-full py-2 pl-10 pr-10 rounded-md border-2 ${
                 darkMode ? "border-gray-700 text-white" : "border-gray-300"
-              } focus:outline-none focus:border-blue-500`}
+              } focus:outline-none focus:border-blue-500 ${
+                darkMode ? "bg-gray-800" : ""
+              }`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
