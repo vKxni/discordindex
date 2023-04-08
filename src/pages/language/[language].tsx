@@ -46,25 +46,11 @@ const LanguagePage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>{`${selectedLanguage.name} - Language`}</title>
-        <meta name="description" content={selectedLanguage.description} />
-        <meta
-          property="og:title"
-          content={`${selectedLanguage.name} - Programming Language`}
-        />
-        <meta
-          property="og:description"
-          content={selectedLanguage.description}
-        />
-        {/* <meta property="og:image" content={imagePath} />
-        <meta property="og:image:width" content="200" />
-        <meta property="og:image:height" content="200" /> */}
-        <meta
-          property="og:url"
-          content={`https://discordindex.vercel.app/language/${encodeURIComponent(
-            selectedLanguage.name
-          )}`}
-        />
+        <title>Discord Index</title>
+        <meta name="description" content="Discord Index helps developers find all kind of programming language communities on Discord, making it easier to connect and collaborate with like-minded individuals." />
+        <meta property="og:title" content="Discord Index" />
+        <meta property="og:description" content="Discord Index helps developers find all kind of programming language communities on Discord, making it easier to connect and collaborate with like-minded individuals." />
+        <meta property="og:url" content="https://discordindex.vercel.app/" />
       </Head>
       <div className={`${themeClass} min-h-screen`}>
         <Header darkMode={darkMode} onToggleDarkMode={handleToggleDarkMode} />
