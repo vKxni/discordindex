@@ -16,7 +16,7 @@ const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
   );
   const [discordCopied, setDiscordCopied] = useState(false);
 
-  const imagePath = `/languages/${selectedLanguage!.name.toLowerCase()}.png`;
+  const imagePath = `/languages/${selectedLanguage!.name}.png`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(selectedLanguage?.discord || "");
