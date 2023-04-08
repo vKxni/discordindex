@@ -1,32 +1,25 @@
+import { GetServerSideProps, NextPage } from "next";
 import { useState } from "react";
 import Link from "next/link";
 import { Language, languages } from "@/utils/languages";
-import { useRouter } from "next/router";
 import { Header } from "@/layout/Header";
 import { FaDiscord, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
 import Head from "next/head";
 
-const LanguagePage: React.FC = () => {
+interface LanguagePageProps {
+  selectedLanguage: Language | null;
+}
+
+const LanguagePage: NextPage<LanguagePageProps> = ({ selectedLanguage }) => {
   const [darkMode, setDarkMode] = useState(
     typeof window !== "undefined" && localStorage.getItem("darkMode") === "true"
   );
   const [discordCopied, setDiscordCopied] = useState(false);
 
-  const router = useRouter();
-  const { language } = router.query;
-
-  const selectedLanguage = languages.find(
-    (lang: Language) => lang.name === language
-  );
-
-  if (!selectedLanguage) {
-    return <div>Language not found</div>;
-  }
-
-  const imagePath = `/languages/${selectedLanguage.name}.png`;
+  const imagePath = `/languages/${selectedLanguage?.name}.png`;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(selectedLanguage.discord);
+    navigator.clipboard.writeText(selectedLanguage?.discord || "");
     setDiscordCopied(true);
     setTimeout(() => {
       setDiscordCopied(false);
@@ -43,14 +36,62 @@ const LanguagePage: React.FC = () => {
     darkMode ? "bg-gray-800" : "bg-white"
   } mt-n12 !important`;
 
+  if (!selectedLanguage) {
+    return (
+      <div className={`${themeClass} min-h-screen`}>
+        <Header darkMode={darkMode} onToggleDarkMode={handleToggleDarkMode} />
+        <div className="mx-auto py-8 px-4 sm:px-6 lg:px-8 max-w-screen-xl">
+          <div className={languageBoxClass}>
+            <h1
+              className={`text-3xl font-bold text-center mb-2 ${
+                darkMode ? "text-white" : ""
+              }`}
+            >
+              Language not found
+            </h1>
+            <div className={`mt-1 sm:mt-8 ${darkMode ? "text-white" : ""}`}>
+              <Link href="/" legacyBehavior={true}>
+                <a
+                  className={`bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center cursor-pointer ${
+                    darkMode ? "text-white hover:text-white" : ""
+                  }`}
+                >
+                  <FaArrowLeft className="mr-2" />
+                  Back to home
+                </a>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <Head>
-        <title>Discord Index</title>
-        <meta name="description" content="Discord Index helps developers find all kind of programming language communities on Discord, making it easier to connect and collaborate with like-minded individuals." />
-        <meta property="og:title" content="Discord Index" />
-        <meta property="og:description" content="Discord Index helps developers find all kind of programming language communities on Discord, making it easier to connect and collaborate with like-minded individuals." />
-        <meta property="og:url" content="https://discordindex.vercel.app/" />
+        <title>{`${selectedLanguage.name} - Language`}</title>
+        <meta name="description" content={selectedLanguage.description} />
+        <meta
+          property="og:title"
+          content={`${selectedLanguage.name} - Programming Language`}
+        />
+        <meta
+          property="og:description"
+          content={selectedLanguage.description}
+        />
+        <meta
+          property="og:image"
+          content={`https://discordindex.vercel.app${imagePath}`}
+        />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="400" />
+        <meta
+          property="og:url"
+          content={`https://discordindex.vercel.app/language/${encodeURIComponent(
+            selectedLanguage.name
+          )}`}
+        />
       </Head>
       <div className={`${themeClass} min-h-screen`}>
         <Header darkMode={darkMode} onToggleDarkMode={handleToggleDarkMode} />
@@ -99,14 +140,6 @@ const LanguagePage: React.FC = () => {
                   {selectedLanguage.creator}
                 </li>
                 <li className="mb-2">
-                  <span className="font-bold">Created:</span>{" "}
-                  {selectedLanguage.created}
-                </li>
-                <li className="mb-2">
-                  <span className="font-bold">Use case:</span>{" "}
-                  {selectedLanguage.usecase}
-                </li>
-                <li className="mb-2">
                   <span className="font-bold">Facts:</span>
                   <ul className="list-disc ml-4">
                     {selectedLanguage.facts.map((fact: string) => (
@@ -133,6 +166,19 @@ const LanguagePage: React.FC = () => {
       </div>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<
+  LanguagePageProps
+> = async ({ params }) => {
+  const { language } = params || {};
+  const selectedLanguage =
+    languages.find((lang: Language) => lang.name === language) || null;
+  return {
+    props: {
+      selectedLanguage,
+    },
+  };
 };
 
 export default LanguagePage;
