@@ -77,7 +77,7 @@ export const languages: Language[] = [
       "Agda is also a proof assistant without separate tactics.",
       "Agda is a statically typed programming language.",
     ],
-    discord: "https://discord.com/invite/eTbWSZj",
+    discord: "https://discord.gg/eTbWSZj",
     website: "https://agda.readthedocs.io/en/v2.6.1.3/",
   },
   {
@@ -128,7 +128,7 @@ export const languages: Language[] = [
       "Assembly language is often used in embedded systems, where memory and processing power are limited.",
       "Some developers still prefer to ASM for performance-critical applications, or to gain a deeper understanding of how computers work.",
     ],
-    discord: "https://discord.com/invite/Km5VzKj",
+    discord: "https://discord.gg/Km5VzKj",
     website: "https://en.wikipedia.org/wiki/Assembly_language",
   },
   {
@@ -145,7 +145,7 @@ export const languages: Language[] = [
       "Ballerina is an open-source language that is available under the Apache 2.0 license.",
       "Ballerina is designed to be network-aware, meaning that it includes built-in support for handling network protocols like HTTP, WebSocket, and gRPC.",
     ],
-    discord: "https://discord.com/invite/wAJYFbMrG2",
+    discord: "https://discord.gg/wAJYFbMrG2",
     website: "https://ballerina.io/",
   },
   {
@@ -177,7 +177,7 @@ export const languages: Language[] = [
       "Caramel features are designed to make it easier to write secure code, automatic memory management and support for cryptographic operations.",
       "Caramel is a compiled programming language.",
     ],
-    discord: "https://discord.com/invite/yvCcjNmCcY",
+    discord: "https://discord.gg/yvCcjNmCcY",
     website: "https://caramel.run/",
   },
   {
@@ -194,7 +194,7 @@ export const languages: Language[] = [
       "Idris is a dependently typed programming language.",
       "Idris is known for its type-system.",
     ],
-    discord: "https://discord.com/invite/YXmWC5yKYM",
+    discord: "https://discord.gg/YXmWC5yKYM",
     website: "https://www.idris-lang.org/",
   },
   {
@@ -277,7 +277,7 @@ export const languages: Language[] = [
       "Lua was designed to be embedded in applications.",
       "Lua runs with a very small memory footprint.",
     ],
-    discord: "https://discord.com/invite/7wu7ZsW",
+    discord: "https://discord.gg/7wu7ZsW",
     website: "https://www.lua.org/",
   },
   {
@@ -360,7 +360,7 @@ export const languages: Language[] = [
       "Reason supports type inference.",
       "Reason is a object-oriented programming language.",
     ],
-    discord: "https://discord.com/invite/reasonml",
+    discord: "https://discord.gg/reasonml",
     website: "https://reasonml.github.io/",
   },
   {
@@ -438,11 +438,11 @@ export const languages: Language[] = [
     created: "2014",
     usecase: "Swift is used for developing iOS apps.",
     facts: [
-      "Swift is an modern alternative to Objective-C.",
+      "Swift is a modern alternative to Objective-C.",
       "Swift includes advanced memory management and type safety features.",
       "Swift owns the largest market share of all programming languages.",
     ],
-    discord: "https://discord.com/invite/0uZpB8GgRvoU12Ta",
+    discord: "https://discord.gg/0uZpB8GgRvoU12Ta",
     website: "https://swift.org/",
   },
   {
@@ -507,7 +507,7 @@ export const languages: Language[] = [
       "Jolie supports both functional and object-oriented programming.",
       "Jolie allows developers to write concurrent programs.",
     ],
-    discord: "https://discord.com/invite/yQRTMNX",
+    discord: "https://discord.gg/yQRTMNX",
     website: "https://jolie-lang.org/",
   },
   {
@@ -573,7 +573,7 @@ export const languages: Language[] = [
       "C is used on most unix-like operating systems.",
       "The most popular compiler is called GCC.",
     ],
-    discord: "https://discord.com/invite/vnyVmAE",
+    discord: "https://discord.gg/vnyVmAE",
     website: "https://www.iso.org/standard/63555.html",
   },
   {
@@ -589,7 +589,7 @@ export const languages: Language[] = [
       "Dart is a compiled programming language.",
       "Dart is the default language for Flutter.",
     ],
-    discord: "https://discord.com/invite/Qt6DgfAWWx",
+    discord: "https://discord.gg/Qt6DgfAWWx",
     website: "https://dart.dev/",
   },
   {
@@ -654,7 +654,7 @@ export const languages: Language[] = [
       "V is a compiled programming language.",
       "V has built-in support for concurrency and parallelism.",
     ],
-    discord: "https://discord.com/invite/vlang",
+    discord: "https://discord.gg/vlang",
     website: "https://vlang.io/",
   },
   {
@@ -671,7 +671,7 @@ export const languages: Language[] = [
       "Haskell is immutable by default.",
       "Haskell is used at Facebook for their Anti-Spam system.",
     ],
-    discord: "https://discord.com/invite/eTbWSZj",
+    discord: "https://discord.gg/eTbWSZj",
     website: "https://www.haskell.org/",
   },
   {
@@ -704,7 +704,7 @@ export const languages: Language[] = [
       "Haxe has its own VMs (HashLink, NekoVM).",
       "Haxe can be run with an interpreted mode.",
     ],
-    discord: "https://discord.com/invite/0uEuWH3spjck73Lo",
+    discord: "https://discord.gg/0uEuWH3spjck73Lo",
     website: "https://haxe.org/",
   },
   {
@@ -720,7 +720,7 @@ export const languages: Language[] = [
       "Wolfram has built in support for symbolic computation.",
       "Wolfram is a object-oriented programming language.",
     ],
-    discord: " https://discord.com/invite/gj6VKAK",
+    discord: " https://discord.gg/gj6VKAK",
     website: "https://wolfran.com",
   },
   {
@@ -736,7 +736,7 @@ export const languages: Language[] = [
       "Q# runs scalable quantum programs.",
       "Q# is integrated into the .NET ecosystem.",
     ],
-    discord: "https://discord.com/invite/vRt6X3FJbg",
+    discord: "https://discord.gg/vRt6X3FJbg",
     website: "https://docs.microsoft.com/en-us/quantum/",
   },
   {
