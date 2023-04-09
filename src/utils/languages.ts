@@ -188,7 +188,7 @@ export const languages: Language[] = [
     creator: "Edwin Brady",
     created: "2009",
     usecase:
-      "Idris is used for functional programming that supports dependent types",
+      "Idris is used for functional programming that supports dependent types.",
     facts: [
       "Idris is designed to be a proof-oriented language - it includes built-in support for writing and verifying mathematical proofs. ",
       "Idris is a dependently typed programming language.",
@@ -201,7 +201,7 @@ export const languages: Language[] = [
     name: "Julia",
     logo: "/languages/julia.png",
     description:
-      "Julia was designed to be fast, flexible, and easy to use, with a syntax that is similar to MATLAB and Python for .",
+      "Julia was designed to be fast, flexible, and easy to use, with a syntax that is similar to MATLAB and Python for Data Science.",
     creator: "Jeff Bezanson",
     created: "2012",
     usecase: "Julia is used for developing games, game engines, and more.",
