@@ -442,7 +442,7 @@ export const languages: Language[] = [
       "Swift includes advanced memory management and type safety features.",
       "Swift owns the largest market share of all programming languages.",
     ],
-    discord: "https://discord.gg/swift",
+    discord: "https://discord.com/invite/0uZpB8GgRvoU12Ta",
     website: "https://swift.org/",
   },
   {
