@@ -721,7 +721,7 @@ export const languages: Language[] = [
       "Wolfram is a object-oriented programming language.",
     ],
     discord: " https://discord.gg/gj6VKAK",
-    website: "https://wolfran.com",
+    website: "https://wolfram.com",
   },
   {
     name: "Q#",
