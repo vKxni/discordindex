@@ -64,6 +64,23 @@ export const languages: Language[] = [
     website: "https://isocpp.org/",
   },
   {
+    name: "Cuda",
+    logo: "/languages/cuda.png",
+    description:
+      "CUDA is a parallel computing platform and programming model developed by NVIDIA for general computing on graphical processing units (GPUs). With CUDA, developers are able to dramatically speed up computing applications by harnessing the power of GPUs.",
+    creator: "NVIDIA",
+    created: "2007",
+    usecase:
+      "CUDA is used for developing high-performance computing applications.",
+    facts: [
+      "CUDA was originally called 'Compute Unified Device Architecture'.",
+      "CUDA-compatible GPUs are available every way that you might use compute power.",
+      "CUDA is a parallel computing platform and programming model.",
+    ],
+    discord: "https://discord.gg/JXuNTpCvdM",
+    website: "https://developer.nvidia.com/cuda-zone",
+  },
+  {
     name: "Agda",
     logo: "/languages/agda.png",
     description:

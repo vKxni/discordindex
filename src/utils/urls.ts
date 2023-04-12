@@ -8,6 +8,7 @@ export const languageUrls: LanguageUrls = {
   "C#": "/languages/csharp.png",
   "C++": "/languages/cpp.png",
   C: "/languages/c.png",
+  Cuda: "/languages/cuda.png",
   Go: "/languages/go.png",
   Rust: "/languages/rust.png",
   Kotlin: "/languages/kotlin.png",
